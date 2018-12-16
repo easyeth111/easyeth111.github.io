@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+	<!--
+### EPE | qbweb.ru ###
+#
+#  This site is powered by Ethereum Pyramid Engine v.0.2.5
+#  Created by: mdgk (qbweb.ru / mdgk.ml)
+# 
+#  Using: Infura.io, Web3.js, Bootstrap-Notify
+#
+#####################
+-->
+
+<script>
+	const contractAddress = "0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88"
+	const contractBlock = "6726951"
+	const contractTimestamp = "1543094420"
+	const eventInvestment = "0xe31c7b8d08ee7db0afa68782e1028ef92305caeea8626633ad44d413e30f6b2f"
+	const eventIncome = "0x5afeca38b2064c23a692c4cf353015d80ab3ecc417b4f893f372690c11fbd9a6"
+	const eventReferralInvestment  = "0xa249146257bee059355926b54611f49f096a7b1ed415e8011b89838f96e5fc51"
+	const debugMode = "false"
+</script>	<html lang="en" dir="ltr">
+
+<head>
+	<title>EasyETH</title>
+	<!-- Meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="robots" content="index, follow, noodp">
+	<meta name="googlebot" content="index, follow">
+	<meta name="google" content="notranslate">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Bootstrap CSS, Animate CSS, Font Awesome-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+	<link rel="stylesheet" href="src\css\main.css?v.2">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- jQuery, Popper.js, Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="src\js\main.js?v.2"></script>
+	<link rel="stylesheet" href="engine\dist\css\animate.css">
+<script src="engine\dist\js\bootstrap-notify.min.js"></script>
+<script src="engine\dist\js\notify-templates.js"></script>
+</head>
+															<!--/HEAD-->
+<body>
+	<script>
+	if(debugMode == 'true'){
+		nSuccess('QB Core SPE >>', 'Добро пожаловать!');
+	}
+	
+		if(debugMode == 'true'){
+			setTimeout(() => {nInfo('Адрес контракта:', contractAddress,);}, 2000);
+		
+	}
+
+</script>
+    <script type="text/javascript" src="engine\controllers\userinfo.js"></script>
+    <script type="text/javascript" src="engine\controllers\statistic.js"></script>
+    <script type="text/javascript" src="engine\dist\js\web3.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<div class="container">
+	  <a class="navbar-brand" href="#"><img src="src\img\logo.png"></a>
+	  <button onclick="hamb()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    <i id="hamb" class="fas fa-bars"></i>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+	    <ul class="navbar-nav d-flex justify-content-around">
+	      <li class="nav-item">
+	        <a class="nav-link" onclick="$( '#hamb' ).click();hamb();" href="#s_how_to_invest">Как инвестировать?</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" onclick="$( '#hamb' ).click();hamb();" href="#s_contribution">Ваш вклад</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" onclick="$( '#hamb' ).click();hamb();" href="#s_about">О проекте</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" onclick="$( '#hamb' ).click();hamb();" href="#s_distribution">Распределение бюджета</a>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+</nav>
+
+<div class="shit d-none" id="shit" onclick="$( '#hamb' ).click();hamb();"></div>
+
+<style type="text/css">
+	
+	.check_addr {
+    max-width: 550px;
+    width: 100%;
+    padding: 1.3rem;
+    border-radius: 20px;
+    z-index: 100;
+    position:relative;
+    box-shadow: 0px 0px 18px 0px #0000001c;
+    border: 0;
+}
+
+</style>
+<div class="modal fade bd-example-modal-lg p-12" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-center"> <br>
+      	<h3>Для того чтобы сделать инвестицию в проект переведите любую сумму ETH на адрес:</h3>
+			<div class="row mt-3 text-center">
+				<div class="col mb-4">
+					<input id="addr_str" class="check_addr" value='0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88' type="text">
+      				<button type="submit" id="copyBtn" onclick='copy()' class="copy_addr" style="height: 65px;">Скопировать</button><br><br>мин. инвестиция 0.01 ETH<br><span>Рекомендуемое количество gas - 250000</span><br><br>
+      				<font color='red'>Не допускается перечисления с бирж! Только с вашего личного ETH кошелька</font>
+				</div>
+		
+			</div>
+		</div>
+      <br>
+    </div>
+  </div>
+
+
+	<header id="header" class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<h1 class="header_h1">Высокая прибыль</h1>
+					<h2 class="header_h2">с гарантией вкладов за счет надёжности технологии смарт-контракта Ethereum</h2>
+					<a style="display: inline-block; margin-top: 16px;">
+						<button data-toggle="modal" data-target=".bd-example-modal-lg" class="btn_inv" style="display: inline-block; margin-top: 16px; margin-left: 8px; margin-right: 8px;">
+							Инвестировать						</button>
+					</a>
+					<a href="https://etherscan.io/address/0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88" style="display: inline-block; margin-top: 16px; margin-left: 8px; margin-right: 8px;" target="_blank">
+						<div class="btn_about">
+							Смарт-контракт GoETH						</div>
+					</a>
+					<div class="row pt-5">
+						<div class="col-md-4 col-sm-12 icon_wrap">
+							<img class="icon" src="src\img\icon1.png">
+							<h2 class="icon balance"><a id='statBalance'></a><span> eth</span></h2>
+							<p class="icon">Инвестировано</p>
+						</div>
+						<div class="col-md-4 col-sm-12 icon_wrap">
+							<img class="icon" src="src\img\icon2.png">
+							<h2 class="icon"><a id='statDays'></a><span> дней</span></h2>
+							<p class="icon">В работе</p>
+						</div>
+						<div class="col-md-4 col-sm-12 icon_wrap">
+							<img class="icon" src="src\img\icon3.png">
+							<h2 class="icon"><a id='statInvestors'></a></h2>
+							<p class="icon">Инвесторов</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 d-none d-lg-block">
+					<img src="src\img\nb.png" class="notebook">
+				</div>
+			</div>
+		</div>
+	</header>
+															<!--/header-->
+	<a id="how_to_invest" style="position: absolute; margin-top: -80px;"></a>
+	<section class="section_howto nav" id="s_how_to_invest">
+		<div class="container d-none d-md-block">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">как Инвестировать в проект <span>GoETH?</span></h2>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-6 col-xl-3 text-center"><button onclick="howto1st()"><img class="howto1 howtoactive" id="howto1btn" src="src\img\howto1.png"></button></div>
+				<div class="col-md-6 col-xl-3 text-center"><button onclick="howto2st()"><img class="howto2" id="howto2btn" src="src\img\howto2.png"></button></div>
+				<div class="col-md-6 col-xl-3 text-center"><a href="#s_contribution"><button><img class="howto3" id="howto3btn" src="src\img\howto3.png"></button></a></div>
+				<div class="col-md-6 col-xl-3 text-center"><button onclick="howto4st()"><img class="howto4" id="howto4btn" src="src\img\howto4.png"></button></div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-12" id="howto1">
+					<h3 class="section_h3 text-center">Как купить ETH на свой кошелек и вложить их в проект <span>GoETH</span></h3>
+					<p class="section_p text-center">Пройдите простую регистрацию на одном из надежных сервисов по управлению ETH и пополните свой счет. Мы рекомендуем кошельки (PC): <span>Myetherwallet, Metamask, Jaxx, Mycrypto.</span> Мобильные приложения: <span>TrustWallet, Jaxx.</span> Как пополнить счет: воспользуйтесь услугой платформы <span>Bestchange</span>					<br></p><p class=" text-center">
+											</p><p class="section_p text-center"><br>
+					Если у Вас что-то не получается, советуем обратиться за помощью в техническую поддержку по e-mail Kristel010101@gmail.com<br><span>Или же по контактной форме ниже!</span></p>
+
+				</div>
+				<div class="col-12 d-none" id="howto2">
+					<h3 class="section_h3 text-center">Перевести любую сумму от 0.01 ETH на адрес смарт-контракта <span>GoETH</span></h3>
+
+					<div class="text-center"><div class="col col-12 mb-4">
+						<input id="addr_str2" class="check_addr" value='0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88' type="text">
+      					<button type="submit" id="copyBtn2" onclick='var copyText=document.getElementById("addr_str2");copyText.select();document.execCommand("copy");$("#copyBtn2").html("Скопировано")' class="copy_addr" style="height: 65px;">Скопировать</button></div>
+      				<font color='red'>Не допускается перечисления с бирж! Только с вашего личного ETH кошелька</font>
+					</div>	
+					<p class="section_p text-center">Для оплаты комиссий транзакций на кошельке дополнительно должно быть мин. <span>0.002 ETH</span> Рекомендуемый <span> gas limits: 250000</span>, актуальный gas price можно взять с <span><a href="https://ethgasstation.info/ ">этого сайта </a><br></span></p>
+				</div>
+				<div class="col-12 d-none" id="howto3">
+					<h3 class="section_h3 text-center">Проверить и отследить транзацию</h3>
+					<p class="section_p text-center">Вы можете отследить транзацию двумя лёгкими методами - роверить успешность выполнения транзакции в истории вашего приложения либо на <span>etherscan.io</span>, указав адрес своего кошелька</p>				</div>
+				<div class="col-12 d-none" id="howto4">
+					<h3 class="section_h3 text-center">Получайте выплаты в любое удобное время</h3>
+					<p class="section_p">Начисление вашего процента происходит каждые 10 минут, с момента последнего вашего успешного пополнения счета, либо успешного списания вами накопленного процента. Вы можете получить выплату в любое время отправив 0 ETH на адрес смарт-контракта: <b>0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88</b> <br> <br> Данное действие является командой для смарт-контракта по выплате дивидендов на адрес кошелька с которого был сделан вклад. Средства будут высланы с адреса смарт-контракта через Internal Txns.<!--Если же вы не закажете выплату в течение 22-ух дней, то ваша прибыль реинвестируется. Подробнее читать в разделе <a href="#reinvest">Реинвестиция средств</a>.--></p>
+				</div>
+			</div>
+		</div>
+		<div class="container d-block d-md-none">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">как Инвестировать в проект <span>GoETH?</span></h2>
+				</div>
+			</div>
+
+
+			<div class="row mt-5 mb-5">
+				<div class="col-12">
+					<div class="accordion" id="accordionExample">
+					  <div class="card">
+					    <div class="card-header" id="heading5">
+					      <button class="btn btn-link btn-faq collapsed d-flex align-items-center" type="button" data-toggle="collapse" data-target="#collapsex" aria-expanded="false" aria-controls="collapsex">
+					        <div style="float: left;">1. Купить ETH на кошелёк</div> <img src="src\img\howto1mob.png" class="ml-auto">
+					      </button>
+					      
+					    </div>
+					    <div id="collapsex" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+					      <div class="card-body">
+							<p class="section_p text-justify">Пройдите простую регистрацию на одном из надежных сервисов по управлению ETH и пополните свой счет. Мы рекомендуем кошельки (PC): <span>Myetherwallet, Metamask, Jaxx, Mycrypto.</span> Мобильные приложения: <span>TrustWallet, Jaxx.</span> Как пополнить счет: воспользуйтесь услугой платформы <span>Bestchange</span>
+							<br><br>
+							Перевести любую сумму от 0.01 ETH на адрес смарт-контракта</p>
+					      </div>
+					    </div>
+					  </div>
+
+					  <div class="card">
+					    <div class="card-header" id="heading5">
+					      <button class="btn btn-link btn-faq collapsed d-flex align-items-center" type="button" data-toggle="collapse" data-target="#collapsex2" aria-expanded="false" aria-controls="collapsex2">
+					        <div style="float: left;">2. Инвестировать в проект</div> <img src="src\img\howto2mob.png" class="ml-auto">
+					      </button>
+					      
+					    </div>
+					    <div id="collapsex2" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	<p class="text-justify">Перевести любую сумму от 0.01 ETH на адрес смарт-контракта <span>GoETH</span></p>
+					      	<div class="text-center"><div class="col col-12 mb-4">
+						<input id="addr_str3" class="check_addr" value='0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88' type="text">
+      					<button type="submit" id="copyBtn3" onclick='var copyText=document.getElementById("addr_str3");copyText.select();document.execCommand("copy");$("#copyBtn3").html("Скопировано!")' class="copy_addr" style="height: 65px; margin-top: 20px;">Скопировать</button></div>
+      						<font color='red'>Не допускается перечисления с бирж! Только с вашего личного ETH кошелька<br><br></font>
+					<p class="section_p text-justify">Для оплаты комиссий транзакций на кошельке дополнительно должно быть мин. <span>0.002 ETH</span> Рекомендуемый <span> gas limits: 250000</span>, актуальный gas price можно взять с <span><a href="https://ethgasstation.info/ ">этого сайта </a><br></span></p>
+					      </div>
+					    </div>
+					  </div>
+
+					  <div class="card">
+					    <div class="card-header" id="heading5">
+					      <a href="#s_contribution"><button class="btn btn-link btn-faq collapsed d-flex align-items-center" type="button" data-toggle="collapse" aria-expanded="false">
+					        <div style="float: left;">3. Проверить платеж</div> <img src="src\img\howto3mob.png" class="ml-auto">
+					      </button></a>
+					      
+					    </div>
+					  </div>
+
+					  <div class="card">
+					    <div class="card-header" id="heading5">
+					      <button class="btn btn-link btn-faq collapsed d-flex align-items-center" type="button" data-toggle="collapse" data-target="#collapsex3" aria-expanded="false" aria-controls="collapsex3">
+					        <div style="float: left;">4. Получать прибыль</div> <img src="src\img\howto4mob.png" class="ml-auto">
+					      </button>
+					      
+					    </div>
+					    <div id="collapsex3" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	<p class="section_p text-justify">Начисление вашего процента происходит каждые 10 минут, с момента последнего вашего успешного пополнения счета, либо успешного списания вами накопленного процента. Вы можете получить выплату в любое время отправив 0 ETH на адрес смарт-контракта: <b>0x766ee4d3f98004ccCE0b1fa6FFA8Ecb273820B88</b> <br> <br> Данное действие является командой для смарт-контракта по выплате дивидендов на адрес кошелька с которого был сделан вклад. Средства будут высланы с адреса смарт-контракта через Internal Txns.<!--Если же вы не закажете выплату в течение 22-ух дней, то ваша прибыль реинвестируется. Подробнее читать в разделе <a href="#reinvest">Реинвестиция средств</a>.--></p>
+					      </div>
+					    </div>
+					  </div>
+				
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div></section>
+	<!----------------------------------------------------------------------------------->
+
+	<section class="section_shadow nav" id="s_contribution">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">проверить ВКЛАД</h2>
+				</div>
+			</div>
+			<div class="row mt-5 mb-5">
+				<div class="col text-center">
+					<input id="userInfoAddressInput" placeholder="Введите адрес вашего кошелька" type="text" class="check_addr">
+					<input id="showUserInfo" type="submit" value="Проверить вклад" class="check_addr_btn">
+				</div>
+			</div>
+			<div class="row pb-5 ">
+				<div id='checkResult' class="col-12">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!----------------------------------------------------------------------------------->
+
+	<a id="about" style="position: absolute; margin-top: -80px;"></a>
+	<section class="section_why pb-5 nav" id="s_about">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">ПОЧЕМУ ИМЕННО МЫ?</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-7 col-md-12 mt-4">
+					<h2 class="card_h">Гарантии</h2>
+					<h3 class="card_h">ваши вклады защищены</h3>
+					<p class="card_p">Проект создан на смарт-контракте Blockchain Ethereum, а это значит, что все транзакции публичны и надежно защищены от постороннего вмешательства.<br><br>
+					<img src="src\img\li.png"> Загружен в Blockchain с активированной функцией «Отказ от владения».<br><br>
+					<img src="src\img\li.png"> Прошел проверку на уязвимость у независимых экспертов.<br><br>
+					<img src="src\img\li.png"> Гарантированная безопасность и прозрачность всех отчислений из проекта.</p>
+					<a style="display: inline-block; margin-top: 16px;">
+						<div data-toggle="modal" data-target=".bd-example-modal-lg" class="btn_inv">
+							Инвестировать						</div>
+					</a>
+				</div>
+				<div class="col-lg-5">
+					<img class="d-none d-lg-block" src="src\img\whyicon1.png" style="max-width: 100%; margin-top: 40px;">
+				</div>
+			</div>
+			<a id="bonuses" style="position: absolute; margin-top: -80px;"></a>
+		</div>
+	</section>
+
+	<section class="section_faq pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center pb-4">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ ИЛИ F.A.Q.</h2>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-12">
+					<div class="accordion" id="accordionExample">
+					  <div class="card">
+					    <div class="card-header" id="heading1">
+					      <button class="btn btn-link btn-faq collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+					        <div style="float: left;">1. Насколько это безопасно?</div> <i id="ar1" class="fas fa-caret-down" style="float: right;"></i>
+					      </button>
+					      
+					    </div>
+					    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	Смарт-контракт, по алгоритму которого работает проект, загружен в блокчейн Ethereum с активированной функцией "ОТКАЗ ОТ ВЛАДЕНИЯ". Это означает, что никто больше  не имеет к нему доступа с возможностью влиять на его автономную работу.  Тем не менее, НЕ ВКЛАДЫВАЙТЕ В ПРОЕКТ ПОСЛЕДНИЕ ИЛИ ЗАЕМНЫЕ СРЕДСТВА. 					      </div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" id="heading2">
+					      <button class="btn btn-link btn-faq collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+					        <div style="float: left;">2. Почему именно НАШ проект?</div> <i id="ar1" class="fas fa-caret-down" style="float: right;"></i>
+					      </button>
+					      
+					    </div>
+					    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	Нами были проанализированы ВСЕ текущие, ранее действовавшие и анонсированные схожие проекты с их плюсами и уязвимостями. Воспользовавшись этой информацией, мы МАКСИМАЛЬНО оптимизировали и ОБЕЗОПАСИЛИ финансовую модель позволая вкладчикам быстро окупать свою прибыль и получать доход в кротчайшие сроки.					      </div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" id="heading3">
+					      <button class="btn btn-link btn-faq collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+					        <div style="float: left;">3. Что будет с проектом, если сайт перестанет работать?</div> <i id="ar1" class="fas fa-caret-down" style="float: right;"></i>
+					      </button>
+					      
+					    </div>
+					    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	Сайт несет больше информационную функцию, если по какой-либо причине он перестанет  работать, это никак не повлияет на ЕЖЕДНЕВНОЕ начисление процентов					      </div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" id="heading4">
+					      <button class="btn btn-link btn-faq collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+					        <div style="float: left;">4. Что будет с проектом, если его разработчики пропадут?</div> <i id="ar1" class="fas fa-caret-down" style="float: right;"></i>
+					      </button>
+					      
+					    </div>
+					    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	Проект уже ИЗНАЧАЛЬНО полностью АВТОНОМНЫЙ и живет в сети, разработчики больше  никак не смогут на него повлиять.					      </div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" id="heading5">
+					      <button class="btn btn-link btn-faq collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+					        <div style="float: left;">5. Есть-ли реферальная программа?</div> <i id="ar1" class="fas fa-caret-down" style="float: right;"></i>
+					      </button>
+					      
+					    </div>
+					    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+					      <div class="card-body">
+					      	При инвестиции рефералом eth на адрес Smart-contract необходимо указать адрес ЕТН кошелека реферера в поле DATA и реферал увеличивает свою сумму вклада на 5%. Реферер же получает такой же бонус как и реферал только уже в eth а не в процентном соотношении.  Пример: Реферал вложил 5eth указав в поле DATA адрес ЕТН кошелека реферера, получает +5% к своему вкладу и его вклад в проект с учетом бонуса по реферальной системе рассценивается как 5.25eth. Бонус реферера зависит напрямую от вклада реферала. Если вклад реферера: 10eth - он получает не +4% к своему депозиту, а такую-же бонусную сумму в eth, равной бонусной сумме реферала, а именно: +0.25eth.					      </div>
+					    </div>
+					  </div>
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<a id="distribution" style="position: absolute; margin-top: -80px;"></a>
+	<section class="section_ra-bu nav" id="s_distribution">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">Распределение бюджета</h2>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col mb-5">
+					<img src="src\img\mark.png" style="max-width: 100%;">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section_shadow">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section_h2 text-center">связаться с администрацией</h2>
+				</div>
+			</div>
+			<div class="row mt-5 mb-5">
+				<div class="col text-center">
+					<form action="/engine/inbox.php" method="POST">
+					<input name="name" type="text" class="input_feedback" placeholder="Ваше имя">
+					<input name="email" type="text" class="input_feedback" placeholder="Email / Telegram">
+					<textarea name="message" type="text" class="input_feedback" placeholder="Опишите, в чем возникают трудности? 
+Мы обязательно поможем Вам!"></textarea>
+					<input type="submit" value="Отправить сообщение" class="l-btn_feedback">
+					
+					<a href="#"><input type="button" value="Связаться через Telegram" class="r-btn_feedback"></a></form>
+				</div>
+			</div>
+			<div class="row pb-5">
+				<div class="col-12">
+					<p class="p_fb text-center">Если у Вас возникли вопросы или проблемы, пожалуйста, опишите их в подробностях. Мы же своевременно поможем Вам! Чем <span>яснее</span> Ваш вопрос - тем <span>детальнее</span> Наш ответ :)</p>
+				</div>
+			</div>
+		</div>
+	</section>
+															<!--/section-->
+	<footer id="footer" class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 align-self-center"><img src="src\img\logomini.png" class="logo-mini text-center"></div>
+				<div class="col-md-3 align-self-center">
+					<p>EasyETH © 2018</p>
+				</div>
+				<div class="col-md-3 align-self-center">
+					<p><span>Email: Kristel010101@gmail.com</span></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+															<!--/footer-->
+</body>
+
+</html>

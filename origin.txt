@@ -1,0 +1,172 @@
+Uri: https://goeth.io/
+File Name: c:\Downloaded Web Sites\goeth.io\index.html
+Content Type: text/html
+
+Uri: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css
+File Name: c:\Downloaded Web Sites\goeth.io\bootstrap\4.1.3\css\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://use.fontawesome.com/releases/v5.2.0/css/all.css
+File Name: c:\Downloaded Web Sites\goeth.io\releases\v5.2.0\css\all.css
+Content Type: text/css
+
+Uri: https://goeth.io/src/css/main.css?v.2
+File Name: c:\Downloaded Web Sites\goeth.io\src\css\main.css
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext
+File Name: c:\Downloaded Web Sites\goeth.io\css.css
+Content Type: text/css
+
+Uri: https://goeth.io/favicon.ico
+File Name: c:\Downloaded Web Sites\goeth.io\favicon.ico
+Content Type: image/x-icon
+
+Uri: https://goeth.io/engine/dist/css/animate.css
+File Name: c:\Downloaded Web Sites\goeth.io\engine\dist\css\animate.css
+Content Type: text/css
+
+Uri: https://etherscan.io/address/0x366fb4e5b701e532d6661Eb0EFa5603DA3db6628
+File Name: c:\Downloaded Web Sites\goeth.io\address\0x366fb4e5b701e532d6661Eb0EFa5603DA3db6628.html
+Content Type: text/html
+
+Uri: https://ethgasstation.info/
+File Name: c:\Downloaded Web Sites\goeth.io\index-1.html
+Content Type: text/html
+
+Uri: https://code.jquery.com/jquery-3.3.1.js
+File Name: c:\Downloaded Web Sites\goeth.io\jquery-3.3.1.js
+Content Type: application/javascript
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js
+File Name: c:\Downloaded Web Sites\goeth.io\ajax\libs\popper.js\1.14.3\umd\popper.min.js
+Content Type: application/javascript
+
+Uri: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
+File Name: c:\Downloaded Web Sites\goeth.io\bootstrap\4.1.3\js\bootstrap.min.js
+Content Type: application/javascript
+
+Uri: https://goeth.io/src/js/main.js?v.2
+File Name: c:\Downloaded Web Sites\goeth.io\src\js\main.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/engine/dist/js/bootstrap-notify.min.js
+File Name: c:\Downloaded Web Sites\goeth.io\engine\dist\js\bootstrap-notify.min.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/engine/dist/js/notify-templates.js
+File Name: c:\Downloaded Web Sites\goeth.io\engine\dist\js\notify-templates.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/engine/controllers/userinfo.js
+File Name: c:\Downloaded Web Sites\goeth.io\engine\controllers\userinfo.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/engine/controllers/statistic.js
+File Name: c:\Downloaded Web Sites\goeth.io\engine\controllers\statistic.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/engine/dist/js/web3.min.js
+File Name: c:\Downloaded Web Sites\goeth.io\engine\dist\js\web3.min.js
+Content Type: application/x-javascript
+
+Uri: https://goeth.io/src/img/logo.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\logo.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/icon1.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\icon1.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/icon2.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\icon2.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/icon3.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\icon3.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/nb.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\nb.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto1.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto1.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto2.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto2.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto3.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto3.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto4.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto4.png
+Content Type: image/png
+
+Uri: https://www.youtube.com/embed/WNtDo4Ytg3Q
+File Name: c:\Downloaded Web Sites\goeth.io\embed\WNtDo4Ytg3Q.html
+Content Type: text/html
+
+Uri: https://goeth.io/src/img/howto1mob.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto1mob.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto2mob.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto2mob.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto3mob.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto3mob.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/howto4mob.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\howto4mob.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/li.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\li.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/whyicon1.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\whyicon1.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/whyicon2.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\whyicon2.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/whyicon3.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\whyicon3.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/mark.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\mark.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/logomini.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\logomini.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/btn1_bg.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\btn1_bg.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/btn2_bg.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\btn2_bg.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/header_bg.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\header_bg.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/active.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\active.png
+Content Type: image/png
+
+Uri: https://goeth.io/src/img/btn3_bg.png
+File Name: c:\Downloaded Web Sites\goeth.io\src\img\btn3_bg.png
+Content Type: image/png
+
